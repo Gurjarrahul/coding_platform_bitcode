@@ -10,23 +10,10 @@ let q = 0;
 const Question = (props) => 
 {
   let setq=function(){};
-  [q,setq]=useState(0)
-  const difficulty = props.difficulty;
-  const cnt = props.id;
-  var classId = "";
-
-  if (cnt % 2)
-   
-  {
-    classId = "light-row"
-  } 
-  else 
-  {
-    classId = "dark-row";
-  }
+  [q,setq]=useState(0);
 
   return (
-    <tr className={classId}>
+    <tr>
       <th scope="row"><NavLink className="nav-link active" >{props.question_id}</NavLink></th>
       <td><NavLink className="nav-link active" to={`/problem/${props.question_id}`} onClick={() => {setq(props.question_id) }} >{props.question_title}</NavLink></td>
       <td>{props.question_level}</td>
@@ -65,49 +52,31 @@ useEffect(() => {
  
 
   return (
-    <>
-      
-      <div className='container-fluid'>
-      <div className="search" style={{backgroundColor:"transparent"}}>
-                <form> 
-                  <input className="form-control mr-sm-2" type="text" onChange={handleChange} placeholder='Search'/>
-                </form>
+    <>     
+      <div className='container-fluid d-flex justify-content-center align-items-center flex-column'>
+          <div className="search">
+                      <input className="form-control mr-sm-2" type="text" onChange={handleChange} placeholder='Search'/>
           </div>
-        <div className='container table'>
-          <table className='table table-striped table-dark  table-responsive  '>
-            <thead>
+          <div className='container-table'>
+            <table className='table table-striped table-responsive'>
+              <thead>
               <tr>
-                <th scope="col">Problem Id</th>
-                <th scope="col">Problem</th>
-                <th scope="col">Level</th>
-              </tr>
-            </thead>
-            <tbody>
-                  {filteredquestion.map((value) => (
-                    <Question
-                      question_id={value.question_id}
-                      question_title={value.question_title}
-                      question_level={value.question_level}
-                    />
-                  ))}
-                </tbody>
-          </table>
-        </div>
-        {/* <div style={{ display: 'flex', justifyContent: 'center' }}>
-           <ReactPaginate
-      previousLabel={'Previous'}
-      nextLabel={'Next'}
-      breakLabel={'...'}
-      pageCount={Math.ceil(pagination.pageCount)}
-      marginPagesDisplayed={2}
-      pageRangeDisplayed={5}
-      onPageChange={handlePageClick}
-      containerClassName={'pagination'}
-      activeClassName={'active'}
-      subContainerClassName={'pages pagination'} 
-     
-    /> 
-        </div> */}
+                  <th>Problem Id</th>
+                  <th>Problem</th>
+                  <th>Level</th>
+                  </tr>              
+              </thead>
+              <tbody>
+                    {filteredquestion.map((value) => (
+                      <Question
+                        question_id={value.question_id}
+                        question_title={value.question_title}
+                        question_level={value.question_level}
+                      />
+                    ))}
+                  </tbody>
+            </table>
+          </div>
       </div>
     </>
   )
