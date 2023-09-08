@@ -5,7 +5,6 @@ import "../../App.css";
 import 'bootstrap'
 import '../Style/problems.css'
 import Problem from './Question';
-import Acc from './testCaseStatus';
 let q = 0;
 const Question = (props) => 
 {

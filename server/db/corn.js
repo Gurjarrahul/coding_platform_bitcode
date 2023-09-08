@@ -1,12 +1,13 @@
 const mongoose=require("mongoose");
-
-mongoose.connect(process.env.DB,{
+console.log("SDFSKJFNSDFNSDMFDSN",process.env.DB);
+mongoose.connect("mongodb+srv://rahulsingh:Rahulgur08@cluster0.3urwqn6.mongodb.net/questionbank?retryWrites=true&w=majority",{
       useNewUrlParser:true,
       useUnifiedTopology:true
   })
   .then(()=>{
         console.log("connected");
       }).catch((e)=>{
+        console.log(e);
 console.log("not connected");
   })
 

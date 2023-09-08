@@ -7,27 +7,28 @@ import Comments from './components/Disscusion/Comments';
 import Home from './components/Home';
 import {Add} from './components/serverwork/AddNewQuestion';
 import INPUT from './components/serverwork/Addinput';
-import Acc from './components/Problemsheet/testCaseStatus';
 import Login from './components/UserAuthentication/Login';
 import Logout from './components/UserAuthentication/Logout';
 import Register from './components/UserAuthentication/Register';
 import Forgetpage from './components/UserAuthentication/forgetpage';
 import Forget from './components/UserAuthentication/forgetpassword';
 import Error from './components/Error';
-
+// import Landing from './components/Editor/CodeEditorWindow'
 function App() {
   return (
     <>
     <Navbar/>
-    
     <Routes>
       <Route path='/' element={<Home/>}/>
+      <Route path='/home' element={<Home/>}/>
       <Route path='/problemsheet' element={<Problemsheet/>}/>
-      <Route path='/problem/:number' element={<Problem/>}/>
+      <Route path='/problem/:number' element={<Problem/>}/>      
+      {/* <Route path='/codeditor' element={<CodeEditor/>}/> */}
+      {/* <Route path='/codeditor' element={Landing}/> */}
       <Route path='/discuss' element={<Comments/>}/> 
       <Route path='/addnq' element={<Add/>}/>
       <Route path='/addinput' element={<INPUT/>}/>
-      <Route path='/accp' element={<Acc/>}/>
+      {/* <Route path='/accp' element={<Acc/>}/> */}
       <Route path='/login' element={<Login/>}/>
       <Route path='/register' element={<Register/>}/>
       <Route path='/logout' element={<Logout/>}/>

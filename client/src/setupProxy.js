@@ -1,5 +1,7 @@
 const { createProxyMiddleware } = require('http-proxy-middleware');
-const url='https://coding-platform-bitcode.onrender.com'
+// https://bitcode.onrender.com/
+// const url='http://127.0.0.1:8000'
+const url = 'https://bitcode.onrender.com/'
 module.exports = function (app) {
   app.use(
     '/sendq',
@@ -58,13 +60,6 @@ module.exports = function (app) {
     })
   )
   app.use(
-    '/userlogout',
-    createProxyMiddleware({
-      target: url,
-      changeOrigin: true,
-    })
-  )
-  app.use(
     '/sendmail',
     createProxyMiddleware({
       target: url,
@@ -86,17 +81,45 @@ module.exports = function (app) {
     })
   )
   app.use(
-    '/discussion',
+    '/discuss',
     createProxyMiddleware({
       target: url,
       changeOrigin: true,
     })
-  )
+  );
   app.use(
     '/thread',
     createProxyMiddleware({
       target: url,
       changeOrigin: true,
     })
-  )
+  );
+  app.use(
+    '/userlogout',
+    createProxyMiddleware({
+      target: url,
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    '/mypost',
+    createProxyMiddleware({
+      target: url,
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    '/threadcomment',
+    createProxyMiddleware({
+      target: url,
+      changeOrigin: true,
+    })
+  );
+  app.use(
+    '/codeditor',
+    createProxyMiddleware({
+      target: url,
+      changeOrigin: true,
+    })
+  );
 };
